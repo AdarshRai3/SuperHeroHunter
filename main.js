@@ -20,6 +20,9 @@ input.addEventListener("keyup", async () => {
   if (input.value.length < 4) {
     return false;
   }
+  // Generate an MD5 hash of the input value
+  var hash = generateHash(input.value);
+  console.log(hash); // Log the hash to the console for testing purposes
   const url = `https://gateway.marvel.com:443/v1/public/characters?ts=${timestamp}&apikey=${apiKey}&hash=${hashValue}&nameStartsWith=${input.value}`;
   const response = await fetch(url);
   const jsonData = await response.json();
@@ -60,4 +63,5 @@ button.addEventListener(
 window.onload = () => {
   getRsult();
 };
+
 
