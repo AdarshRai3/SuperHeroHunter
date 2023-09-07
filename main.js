@@ -1,3 +1,4 @@
+const { generateHash } = require("./hash");
 const { ts, publicKey, hashVal } = require("./hash");
 
 let input = document.getElementById("input-box");
