@@ -1,5 +1,5 @@
-const { generateHash } = require("./hash");
-const { ts, publicKey, hashVal } = require("./hash");
+import { generateHash } from "./hash.js";
+import { ts, publicKey, hashVal } from "./hash.js";
 
 let input = document.getElementById("input-box");
 let button = document.getElementById("submit-button");
@@ -63,5 +63,3 @@ button.addEventListener(
 window.onload = () => {
   getRsult();
 };
-
-
