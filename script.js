@@ -1,31 +1,33 @@
-import { generateHash } from "./hash.js";
-import { ts, publicKey, hashVal } from "./hash.js";
-
 let input = document.getElementById("input-box");
 let button = document.getElementById("submit-button");
 let showContainer = document.getElementById("show-container");
 let listContainer = document.querySelector(".list");
+
 let date = new Date();
 console.log(date.getTime());
+
 const [timestamp, apiKey, hashValue] = [ts, publicKey, hashVal];
+
 function displayWords(value) {
   input.value = value;
   removeElements();
 }
+
 function removeElements() {
   listContainer.innerHTML = "";
 }
+
 input.addEventListener("keyup", async () => {
   removeElements();
   if (input.value.length < 4) {
     return false;
   }
-  // Generate an MD5 hash of the input value
-  var hash = generateHash(input.value);
-  console.log(hash); // Log the hash to the console for testing purposes
+
   const url = `https://gateway.marvel.com:443/v1/public/characters?ts=${timestamp}&apikey=${apiKey}&hash=${hashValue}&nameStartsWith=${input.value}`;
+
   const response = await fetch(url);
   const jsonData = await response.json();
+
   jsonData.data["results"].forEach((result) => {
     let name = result.name;
     let div = document.createElement("div");
@@ -38,6 +40,7 @@ input.addEventListener("keyup", async () => {
     listContainer.appendChild(div);
   });
 });
+
 button.addEventListener(
   "click",
   (getRsult = async () => {
@@ -46,6 +49,7 @@ button.addEventListener(
     }
     showContainer.innerHTML = "";
     const url = `https://gateway.marvel.com:443/v1/public/characters?ts=${timestamp}&apikey=${apiKey}&hash=${hashValue}&name=${input.value}`;
+
     const response = await fetch(url);
     const jsonData = await response.json();
     jsonData.data["results"].forEach((element) => {
@@ -63,5 +67,3 @@ button.addEventListener(
 window.onload = () => {
   getRsult();
 };
-
-
