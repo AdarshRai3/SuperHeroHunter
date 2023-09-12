@@ -40,6 +40,7 @@ input.addEventListener("keyup", async () => {
     listContainer.appendChild(div);
   });
 });
+let getRsult; // Define getRsult in the global scope
 
 button.addEventListener(
   "click",
@@ -64,6 +65,7 @@ button.addEventListener(
     });
   })
 );
+
 window.onload = () => {
   getRsult();
 };
