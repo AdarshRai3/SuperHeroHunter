@@ -40,21 +40,18 @@ input.addEventListener("keyup", async () => {
     listContainer.appendChild(div);
   });
 });
-let getRsult; // Define getRsult in the global scope
 
-button.addEventListener(
-  "click",
-  (getRsult = async () => {
-    if (input.value.trim().length < 1) {
-      alert("Input cannot be blank");
-    }
-    showContainer.innerHTML = "";
-    const url = `https://gateway.marvel.com:443/v1/public/characters?ts=${timestamp}&apikey=${apiKey}&hash=${hashValue}&name=${input.value}`;
+const getRsult = async () => {
+  if (input.value.trim().length < 1) {
+    alert("Input cannot be blank");
+  }
+  showContainer.innerHTML = "";
+  const url = `https://gateway.marvel.com:443/v1/public/characters?ts=${timestamp}&apikey=${apiKey}&hash=${hashValue}&name=${input.value}`;
 
-    const response = await fetch(url);
-    const jsonData = await response.json();
-    jsonData.data["results"].forEach((element) => {
-      showContainer.innerHTML = `<div class="card-container">
+  const response = await fetch(url);
+  const jsonData = await response.json();
+  jsonData.data["results"].forEach((element) => {
+    showContainer.innerHTML = `<div class="card-container">
         <div class="container-character-image">
         <img src="${
           element.thumbnail["path"] + "." + element.thumbnail["extension"]
@@ -62,9 +59,8 @@ button.addEventListener(
         <div class="character-name">${element.name}</div>
         <div class="character-description">${element.description}</div>
         </div>`;
-    });
-  })
-);
+  });
+};
 
 window.onload = () => {
   getRsult();
