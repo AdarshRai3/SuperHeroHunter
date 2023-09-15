@@ -4,38 +4,16 @@
      box-sizing: border-box;
      font-family: sans-serif,'Poppins';
 }
-.bg
-{
-   
+video
+{  
     position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:0.5%;
-    height: 100vh;
-    width: 100vw;
-    background-color: #555;
-
+    top:50%;
+    left:50%;
+    min-width:100%;
+    min-height:100%;
+    width:auto;
+    height:auto;
+    z-index:0;
+    transform:translateX(-50%)translateX(-50%);
 }
 
-.videobg
-{
-    position:absolute;
-    right:0;
-    bottom:0;
-    z-index:-1;
-}
-@media(max-aspect-ratio: 16/9) {
-    .videobg{
-        width:auto;
-        height:100%;
-    }
-    
-}
-@media(min-aspect-ratio: 16/9) {
-    .videobg{
-        width:100%;
-        height:auto;
-    }
-    
-}
