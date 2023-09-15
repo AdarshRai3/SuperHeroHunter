@@ -1,19 +1,18 @@
-*{
-     padding:0;
-     margin:0;
+body
+{
+     overflow-x: hidden;
      box-sizing: border-box;
+     color:#505962;
      font-family: sans-serif,'Poppins';
 }
-video
+.video-background
 {  
     position:relative;
-    top:50%;
-    left:50%;
-    min-width:100%;
-    min-height:100%;
-    width:auto;
-    height:auto;
-    z-index:0;
-    transform:translateX(-50%)translateX(-50%);
+    width:100%;
+    min-height:100vh;
+    color:rbga(0,0,0,0.2);
 }
-
+@media(max-width:768px)
+{
+    
+}
