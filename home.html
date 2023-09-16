@@ -19,7 +19,7 @@
 <body>
     <!-- Preloader -->
     <div id="preloader">
-      
+      <img src="assets/preloader/preloderVideo.gif" alt="Loading...">
     </div>
     <!-- Nav Bar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary py-1 fixed-top" data-bs-theme="dark">
@@ -93,6 +93,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
    
+    <!-- js script for preloader -->
+    <script>
+    window.addEventListener('load', function() {
+    if (!sessionStorage.getItem('doNotShow')) {
+        sessionStorage.setItem('doNotShow', 'true');
+        setTimeout(function() {
+            document.querySelector('#preloader').style.display = 'none';
+        }, 33000); // This will make the preloader visible for 12 seconds
+    } else {
+        document.querySelector('#preloader').style.display = 'none';
+    }
+});
+    </script>
     
     
 </body>
