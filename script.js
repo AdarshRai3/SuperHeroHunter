@@ -23,7 +23,7 @@ input.addEventListener("keyup", async () => {
     return false;
   }
 
-  const url = `https://gateway.marvel.com:443/v1/public/characters?ts=${timestamp}&apikey=${apiKey}&hash=${hashValue}&nameStartsWith=${input.value}`;
+  const url = 'https://gateway.marvel.com:443/v1/public/characters?ts=${timestamp}&apikey=${apiKey}&hash=${hashValue}&nameStartsWith=${input.value}';
 
   const response = await fetch(url);
   const jsonData = await response.json();
